@@ -1,0 +1,125 @@
+/* PENSER A METTRE DES COMMENTAIRES ENTRE DEUX ELEMENTS POUR ANNULER LES MARGES EN CAS DE CHANGEMENT DE DISPLAY (EX:DISPLAY:INLINE-BLOCK)*/
+
+/*ORDRE DE DÃ‰CLARATION EN CSS:
+- DISPLAY ETC
+- POSITION
+- CE QUI CONCERNE LE BLOC (EX:MARGIN PADDING ETC)
+- CE QUI CONCERNE LE TEXTE (EX: FONT; TEXT ALIGN ETC)
+- CE QUI CONCERNE LA DÃ‰CO (EX: COLOR, TRANSITION ETC) */
+
+/* FONT FACE */
+/* Appelle les polices de la page */
+
+/*GLOBAL */
+/* Balises et class appelÃ©s Ã  plusieurs endroits dans la page */
+*{
+    box-sizing: border-box;
+  }
+  html {font-size: 62.5%}
+  
+  body {
+      margin: 0;
+      padding: 0;;
+      font-size: 1.6rem;
+      font-family: "Roboto Slab",Arial,sans-serif;
+      line-height: 1.6;
+      overflow-x: hidden;
+  }
+  a, a:hover, a:visited, a:active {
+      text-decoration: none;
+  }
+  .container{
+    padding: 3em 2em 2em 2em;
+    background-image: url(img/bg.jpg);
+    background-size: cover;
+    height: 600px;
+  }
+  img{
+    max-width: 100%;
+  }
+  #hidden{
+    display: none;
+  }
+  .hidden{
+    display: none
+  }
+  h1, h2, h3, h4{
+    text-align: center;
+    font-family: 'Roboto Condensed', sans-serif;
+  }
+  p{
+    text-align: center;
+  }
+  .h1{
+    margin-top: 0;
+    font-size: 2em;
+  }
+  .h2{
+    margin-top: 0;
+    font-size: 1.8em;
+  }
+  .p{
+    font-size: 1.2em;
+  }
+  .center{
+    display: block;
+    text-align: center;
+  }
+  .bold{
+    font-weight: bold;
+  }
+  /* MARGES */
+  .small-padding {padding: 10px}
+  .regular-padding {padding: 25px}
+  .big-padding {padding: 50px}
+  
+  .small-margin {margin: 10px}
+  .regular-margin {margin: 25px}
+  .big-margin {margin: 50px}
+  
+  .no-padding {padding: 0}
+  .no-margin {margin: 0}
+  
+  .no-padding-top{padding-top: 0}
+  .no-padding-right {padding-right: 0}
+  .no-padding-bottom{padding-bottom: 0}
+  .no-padding-left{padding-left: 0}
+  
+  .no-margin-top{margin-top: 0}
+  .no-margin-right{margin-right: 0}
+  .no-margin-bottom{margin-bottom: 0}
+  .no-margin-left{margin-left: 0}
+  
+  /* Ã‰volution ultime du .clear */
+  .clear::after {
+      clear: both;
+      content: ".";
+      display: block;
+      height: 0;
+      line-height: 0;
+      visibility: hidden;
+  }
+  
+  /* Button */
+  .buttonSend{
+    display: block;
+    margin: auto;
+    padding: 1em;
+    box-shadow: 0 0 0 3px #B28564 inset;
+    color: #fff;
+    background-color: transparent;
+    border-radius: 5px;
+    border: none;
+    font-size: 1em;
+  }
+  .buttonSend:hover, .buttonSend:focus{
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  /* FOOTER */
+  /* Ce qui concerne le footer */
+  #footer{
+    text-align: center;
+    color: #fff;
+  }
