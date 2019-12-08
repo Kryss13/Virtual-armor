@@ -1,6 +1,6 @@
 // To connect :
 // open new terminal
-// 'node server.js' in the folder where the server file is located (cd ../chemin)
+// 'node server.js' in the folder where the server file is located (cd ../path)
 //  web browser 'localhost:3000'
 'use strict';
 const path = require('path');
@@ -11,8 +11,8 @@ const http = require('http').createServer(app); // Create server http by retriev
 const io = require('socket.io')(http); // socket.io is grafted to http so to the server 
 
 
-app.use(express.static(path.join(__dirname, 'Client'))); // Permet de joindre des éléments de texte permet d'adapter le path à tous les os
-// Dirname va chercher le dossier de la racine absolue jusqu'au fichier
+app.use(express.static(path.join(__dirname, 'Client'))); // Allows to attach text elements and allows to adapt the path to all os
+// Dirname will search the folder from the absolute root to the file
 
 // List Armors
 const armors = [{
@@ -94,10 +94,11 @@ app.get(`${apiVersion}/armors`, (req, res) => {
 app.get(`${apiVersion}/armors/:id`, (req, res) => {
   //get id
   const id = req.params.id - 1;//- 1 to retrieve the value of the array
-  
+
   res.json({
-    data : armors[id] || null //Return this armors or null if id no exist
+    data : armors[id] || res.sendStatus(204)//Return this armors or no content if id doesn't exist
   })
+  
 });
 
 // POST /api/v1/armors
@@ -107,8 +108,8 @@ app.post(`${apiVersion}/armors`, (req, res) => {
   armors.push(data); // Push new armors in tab
   
   res.json({
-    index : armors.length,
-    data : armors[armors.length -1]
+    index : armors.length, // Returns the id corresponding to the new armor
+    data : armors[armors.length -1] // Returns the new armor
   })
 });
 
@@ -121,7 +122,7 @@ app.put(`${apiVersion}/armors/:id`, (req, res) => {
   armors[id] = Object.assign(armors[id], data); // Merge id armors with data
 
   res.json({
-    data : armors[id]
+    data : armors[id] // Returns the modified armor 
   })
 });
 
@@ -130,10 +131,9 @@ app.delete(`${apiVersion}/armors/:id`, (req, res) => {
   //get id
   const id = req.params.id - 1;//- 1 to retrieve the value of the array 
 
-  armors.splice(id, 1); // removes the armor where the id is equal to the id given in the url
+  armors.splice(id, 1); // Removes the armor where the id is equal to the id given in the url
 
   console.log("Armor with id : " + (id + 1) + " delete");
-  
 
   res.sendStatus(200);// Return status OK
 });
