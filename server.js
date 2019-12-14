@@ -103,10 +103,15 @@ app.get(`${apiVersion}/armors/:id`, (req, res) => {
 
 // POST /api/v1/armors
 app.post(`${apiVersion}/armors`, (req, res) => {
+
+  console.log(req.body);
+  console.log(req.body.helmetName);
+
+    
   const data = req.body;// Get data with request body
-  
+
   armors.push(data); // Push new armors in tab
-  
+
   res.json({
     index : armors.length, // Returns the id corresponding to the new armor
     data : armors[armors.length -1] // Returns the new armor

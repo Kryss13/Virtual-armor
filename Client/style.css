@@ -68,6 +68,9 @@
   .bold{
     font-weight: bold;
   }
+  #form{
+    display: table-caption;
+  }
   /* MARGES */
   .small-padding {padding: 10px}
   .regular-padding {padding: 25px}

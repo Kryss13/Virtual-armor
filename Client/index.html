@@ -15,9 +15,25 @@
   <div id="conteneur" class="container">
     <h1 id="header" class="beige">Virtual Armor</h1>
 
-    <form action="" id="form">
-      <input type="text" id="message" class="text">
-      <input type="submit" id="send" value="Envoyer mon message" class="submit">
+    <form action="/api/v1/armors" method="POST" id="form">
+      <input type="text" id="armorName" placeholder="Armor name" class="text" name="name">
+
+      <input type="text" id="helmetName" placeholder="Helmet name" class="text" name="helmetName">
+      <input type="number" id="helmetValue" placeholder=0 class="text" name="helmetValue">
+      
+      <input type="text" id="armsName" placeholder="Arms name" class="text" name="armsName">
+      <input type="number" id="armsValue" placeholder=0 class="text" name="armsValue">
+
+      <input type="text" id="chestName" placeholder="Chest name" class="text" name="chestName">
+      <input type="number" id="chestValue" placeholder=0 class="text" name="chestValue">
+
+      <input type="text" id="legsName" placeholder="Legs name" class="text" name="legsName">
+      <input type="number" id="legsValue" placeholder=0 class="text" name="legsValue">
+
+      <input type="text" id="mantleName" placeholder="Mantle name" class="text" name="mantleName">
+      <input type="number" id="mantleValue" placeholder=0 class="text" name="mantleValue">
+
+      <input type="submit" id="send" value="Send my armor" class="submit">
     </form>
   </div>
 
