@@ -10,6 +10,7 @@ const app = express(); // Instancy express
 const http = require('http').createServer(app); // Create server http by retrieving the express server
 const io = require('socket.io')(http); // socket.io is grafted to http so to the server 
 
+const fetch = require('node-fetch');
 
 app.use(express.static(path.join(__dirname, 'Client'))); // Allows to attach text elements and allows to adapt the path to all os
 // Dirname will search the folder from the absolute root to the file
@@ -104,11 +105,8 @@ app.get(`${apiVersion}/armors/:id`, (req, res) => {
 // POST /api/v1/armors
 app.post(`${apiVersion}/armors`, (req, res) => {
 
-  console.log(req.body);
-  console.log(req.body.helmetName);
-
-    
   const data = req.body;// Get data with request body
+  console.log(req.body);
 
   armors.push(data); // Push new armors in tab
 
@@ -143,4 +141,4 @@ app.delete(`${apiVersion}/armors/:id`, (req, res) => {
   res.sendStatus(200);// Return status OK
 });
 
-http.listen(3000, () => console.log('Listening on port 3000'));
+http.listen(3001, () => console.log('Listening on port 3001'));
